@@ -13,7 +13,7 @@ if (numeric + special + uppercase + lowercase === 0) {
 
 var keys = {
   numeric: "0123456789",
-  special: "!@#$%^&*()_+~\\`|}{[]:;?><,./-=",
+  special: "!@#$%^&*_-+=",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowercase: "abcdefghijklmnopqrstuvwxyz"
 }
