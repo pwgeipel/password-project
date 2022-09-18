@@ -39,10 +39,10 @@ function generatePassword() {
   alert("Select at least one option.");
   return;
   }
-  var length = document.getElementById('length');
-  var password = " ";
+  var passwordLength = document.getElementById('length');
+  var password = "";
   var passwordText = document.querySelector("#password");
-  while (length.value > password.length) {
+  while (passwordLength.value > password.length) {
     var newChar = getChar[Math.floor(Math.random() * getChar.length)];
     var selected = document.getElementById(newChar.name).checked;
     if (selected) {
@@ -50,10 +50,8 @@ function generatePassword() {
     }
   }
 
- 
-
 }
 
 // // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+document.getElementById("generate").addEventListener("click", generatePassword);
 
