@@ -17,6 +17,19 @@ var keys = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowercase: "abcdefghijklmnopqrstuvwxyz"
 }
+
+var getChar = [
+  function numeric() {
+    keys.numeric[Math.floor(Math.random() * keys.numeric.length)];
+  function special() {
+    keys.special[Math.floor(Math.random() * keys.special.length)];
+  function uppercase() {
+    keys.uppercase[Math.floor(Math.random() * keys.uppercase.length)];
+  function lowercase() {
+    keys.lowercase[Math.floor(Math.random() * keys.lowercase.length)];  
+]
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
