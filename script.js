@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var form = document.getElementById('passwordform');
-var length = document.getElementById('length');
+
 
 
 
@@ -16,10 +16,13 @@ var keys = {
 var getChar = [
   function numeric() {
     keys.numeric[Math.floor(Math.random() * keys.numeric.length)];
+  },
   function special() {
     keys.special[Math.floor(Math.random() * keys.special.length)];
+  },
   function uppercase() {
     keys.uppercase[Math.floor(Math.random() * keys.uppercase.length)];
+  },
   function lowercase() {
     keys.lowercase[Math.floor(Math.random() * keys.lowercase.length)];  
   }
@@ -27,7 +30,7 @@ var getChar = [
 
 
 // Write password to the #password input
-function writePassword() {
+function generatePassword() {
   var numeric = document.getElementById('numeric').checked;
   var special = document.getElementById('special').checked;
   var uppercase = document.getElementById('uppercase').checked;
@@ -36,13 +39,21 @@ function writePassword() {
   alert("Select at least one option.");
   return;
   }
-  var password = generatePassword();
+  var length = document.getElementById('length');
+  var password = " ";
   var passwordText = document.querySelector("#password");
+  while (length.value > password.length) {
+    var newChar = getChar[Math.floor(Math.random() * getChar.length)];
+    var selected = document.getElementById(newChar.name).checked;
+    if (selected) {
+       passwordText.value = password;
+    }
+  }
 
-  passwordText.value = password;
+ 
 
 }
 
-// Add event listener to generate button
+// // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
