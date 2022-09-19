@@ -1,6 +1,6 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-var form = document.getElementById('passwordform');
+// // Assignment Code
+// var generateBtn = document.querySelector("#generate");
+// var form = document.getElementById('passwordform');
 
 
 
@@ -40,16 +40,16 @@ function generatePassword() {
   return;
   }
   var passwordLength = document.getElementById('length');
-  var password = "";
   var passwordText = document.querySelector("#password");
+  var password = "";
   while (passwordLength.value > password.length) {
     var newChar = getChar[Math.floor(Math.random() * getChar.length)];
     var selected = document.getElementById(newChar.name).checked;
     if (selected) {
-       passwordText.value = password;
+       password += newChar();
     }
   }
-
+    passwordText.value = password;
 }
 
 // // Add event listener to generate button
