@@ -13,29 +13,34 @@ var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"
 var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 }
 
-var getChar = [
-  function numeric() {
-    keys.numeric[Math.floor(Math.random() * keys.numeric.length)];
-  },
-  function special() {
-    keys.special[Math.floor(Math.random() * keys.special.length)];
-  },
-  function uppercase() {
-    keys.uppercase[Math.floor(Math.random() * keys.uppercase.length)];
-  },
-  function lowercase() {
-    keys.lowercase[Math.floor(Math.random() * keys.lowercase.length)];  
-  }
-];
+// var getChar = [
+//   function numeric() {
+//     keys.numeric[Math.floor(Math.random() * keys.numeric.length)];
+//   },
+//   function special() {
+//     keys.special[Math.floor(Math.random() * keys.special.length)];
+//   },
+//   function uppercase() {
+//     keys.uppercase[Math.floor(Math.random() * keys.uppercase.length)];
+//   },
+//   function lowercase() {
+//     keys.lowercase[Math.floor(Math.random() * keys.lowercase.length)];  
+//   }
+// ];
 
 
 // Write password to the #password input
 function generatePassword() {
-  var numeric = document.getElementById('numeric').checked;
-  var special = document.getElementById('special').checked;
-  var uppercase = document.getElementById('uppercase').checked;
-  var lowercase = document.getElementById('lowercase').checked;
-  if (numeric + special + uppercase + lowercase === 0) {
+  setPasswordLength();
+  choicePrompts();
+  buildUserArray();
+  return userArray;
+}  
+  // var numeric = document.getElementById('numeric').checked;
+  // var special = document.getElementById('special').checked;
+  // var uppercase = document.getElementById('uppercase').checked;
+  // var lowercase = document.getElementById('lowercase').checked;
+if (numeric + special + uppercase + lowercase === 0) {
   alert("Select at least one option.");
   return;
   }
@@ -48,9 +53,9 @@ function generatePassword() {
     if (selected) {
        password += newChar();
     }
-  }
+  }  
     passwordText.value = password;
-}
+
 
 // // Add event listener to generate button
 document.getElementById("generate").addEventListener("click", generatePassword);
