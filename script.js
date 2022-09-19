@@ -43,12 +43,25 @@ function generatePassword() {
   choicePrompts();
   buildUserArray();
   return userArray;
-}  
+};  
   // var numeric = document.getElementById('numeric').checked;
   // var special = document.getElementById('special').checked;
   // var uppercase = document.getElementById('uppercase').checked;
   // var lowercase = document.getElementById('lowercase').checked;
-if (numeric + special + uppercase + lowercase === 0) {
+function setPasswordLength() {
+  passwordLength = 0;
+  while(passwordLength < 8 || passwordLength > 128) {
+    passwordLength = Math.floor(window.prompt("Please select a password length between 8 and 128 characters."));
+    if (isNaN(passwordLength)) {
+      passwordLength = 0;
+    };
+  };
+};
+
+
+
+
+  if (numeric + special + uppercase + lowercase === 0) {
   alert("Select at least one option.");
   return;
   }
