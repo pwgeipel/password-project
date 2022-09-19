@@ -1,12 +1,5 @@
 // // Assignment Code
 var generateBtn = document.querySelector("#generate");
-// var form = document.getElementById('passwordform');
-
-
-
-
-
-
 var numericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "="];
 var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -19,35 +12,16 @@ let specialPrompt;
 let uppercasePrompt;
 let lowercasePrompt;
 
-
-
-// var getChar = [
-//   function numeric() {
-//     keys.numeric[Math.floor(Math.random() * keys.numeric.length)];
-//   },
-//   function special() {
-//     keys.special[Math.floor(Math.random() * keys.special.length)];
-//   },
-//   function uppercase() {
-//     keys.uppercase[Math.floor(Math.random() * keys.uppercase.length)];
-//   },
-//   function lowercase() {
-//     keys.lowercase[Math.floor(Math.random() * keys.lowercase.length)];  
-//   }
-// ];
-
-
-// Write password to the #password input
+//generatePassword function creates password
 function generatePassword() {
   setPasswordLength();
   choicePrompts();
   buildUserArray();
+  // returns new password array as userArray to use in writePassword()
   return userArray;
 };  
-  // var numeric = document.getElementById('numeric').checked;
-  // var special = document.getElementById('special').checked;
-  // var uppercase = document.getElementById('uppercase').checked;
-  // var lowercase = document.getElementById('lowercase').checked;
+
+// prompts user for a value and checks length and number-type
 function setPasswordLength() {
   passwordLength = 0;
   while(passwordLength < 8 || passwordLength > 128) {
@@ -56,8 +30,11 @@ function setPasswordLength() {
       passwordLength = 0;
     };
   };
+  // returns value of password length to be used in buildUserArray()
+  return passwordLength;
 };
 
+// choice confirm prompts
 function choicePrompts() {
   numericPrompt = confirm("Do you want numbers in your password?");
   specialPrompt = confirm("Do you want special characters in your password?")
@@ -65,11 +42,14 @@ function choicePrompts() {
   lowercasePrompt = confirm("Do you want lowercase letters in your password?")
 }
 
+// uses confirmed prompts and concats confirmed choices
 function buildUserArray() {
+  // will prompt an alert if all choices are not selected and reruns choicePrompts
   while (!numericPrompt && !specialPrompt && !uppercasePrompt && !lowercasePrompt) {
     alert("Please select at least one option.");
     choicePrompts();
   };
+  // if choice is "true", concat option array to resultArray
   if (numericPrompt){
     resultArray = resultArray.concat(numericArray);
   };
@@ -99,24 +79,5 @@ function writePassword() {
   userArray = [];
 }
 
-
-  // if (numeric + special + uppercase + lowercase === 0) {
-  // alert("Select at least one option.");
-  // return;
-  // }
-  // var passwordLength = document.getElementById('length');
-  // var passwordText = document.querySelector("#password");
-  // var password = "";
-  // while (passwordLength.value > password.length) {
-  //   var newChar = getChar[Math.floor(Math.random() * getChar.length)];
-  //   var selected = document.getElementById(newChar.name).checked;
-  //   if (selected) {
-  //      password += newChar();
-  //   }
-  // }  
-  //   passwordText.value = password;
-
-
-// // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
