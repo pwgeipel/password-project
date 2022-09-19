@@ -118,5 +118,5 @@ function writePassword() {
 
 
 // // Add event listener to generate button
-document.getElementById("generate").addEventListener("click", generatePassword);
+document.getElementById("generate").addEventListener("click", writePassword);
 
