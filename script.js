@@ -90,24 +90,31 @@ function buildUserArray() {
   userArray = userArray.join("");
 }
 
-
-
-
-  if (numeric + special + uppercase + lowercase === 0) {
-  alert("Select at least one option.");
-  return;
-  }
-  var passwordLength = document.getElementById('length');
+function writePassword() {
+  var password = generatePassword();
+  console.log("password: " + password);
   var passwordText = document.querySelector("#password");
-  var password = "";
-  while (passwordLength.value > password.length) {
-    var newChar = getChar[Math.floor(Math.random() * getChar.length)];
-    var selected = document.getElementById(newChar.name).checked;
-    if (selected) {
-       password += newChar();
-    }
-  }  
-    passwordText.value = password;
+  passwordText.value = password;
+  resultArray = [];
+  userArray = [];
+}
+
+
+  // if (numeric + special + uppercase + lowercase === 0) {
+  // alert("Select at least one option.");
+  // return;
+  // }
+  // var passwordLength = document.getElementById('length');
+  // var passwordText = document.querySelector("#password");
+  // var password = "";
+  // while (passwordLength.value > password.length) {
+  //   var newChar = getChar[Math.floor(Math.random() * getChar.length)];
+  //   var selected = document.getElementById(newChar.name).checked;
+  //   if (selected) {
+  //      password += newChar();
+  //   }
+  // }  
+  //   passwordText.value = password;
 
 
 // // Add event listener to generate button
