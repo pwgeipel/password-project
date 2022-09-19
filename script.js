@@ -82,7 +82,16 @@ function buildUserArray() {
   if (lowercasePrompt){
     resultArray = resultArray.concat(lowercaseArray);
   };
+  console.log(resultArray)
+
+  for (var i = 0; i < passwordLength; i++) {
+    userArray.push(resultArray[Math.floor(Math.random() * resultArray.length)]);
+  }
+  userArray = userArray.join("");
 }
+
+
+
 
   if (numeric + special + uppercase + lowercase === 0) {
   alert("Select at least one option.");
