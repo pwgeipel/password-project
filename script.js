@@ -58,7 +58,12 @@ function setPasswordLength() {
   };
 };
 
-
+function optionPrompts() {
+  numericPrompt = confirm("Do you want numbers in your password?");
+  specialPrompt = confirm("Do you want special characters in your password?")
+  uppercasePrompt = confirm("Do you want uppercase letters in your password?")
+  lowercasePrompt = confirm("Do you want lowercase letters in your password?")
+}
 
 
   if (numeric + special + uppercase + lowercase === 0) {
