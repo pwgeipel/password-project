@@ -74,7 +74,9 @@ function writePassword() {
   var password = generatePassword();
   console.log("password: " + password);
   var passwordText = document.querySelector("#password");
+  // assigns password to text area value on DOM
   passwordText.value = password;
+  //resets resultArray && userArray to empty
   resultArray = [];
   userArray = [];
 }
