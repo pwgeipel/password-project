@@ -58,7 +58,7 @@ function setPasswordLength() {
   };
 };
 
-function optionPrompts() {
+function choicePrompts() {
   numericPrompt = confirm("Do you want numbers in your password?");
   specialPrompt = confirm("Do you want special characters in your password?")
   uppercasePrompt = confirm("Do you want uppercase letters in your password?")
@@ -68,7 +68,7 @@ function optionPrompts() {
 function buildUserArray() {
   while (!numericPrompt && !specialPrompt && !uppercasePrompt && !lowercasePrompt) {
     alert("Please select at least one option.");
-    optionPrompts();
+    choicePrompts();
   };
   if (numericPrompt){
     resultArray = resultArray.concat(numericArray);
@@ -118,5 +118,5 @@ function writePassword() {
 
 
 // // Add event listener to generate button
-document.getElementById("generate").addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 
