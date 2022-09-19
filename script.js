@@ -65,6 +65,24 @@ function optionPrompts() {
   lowercasePrompt = confirm("Do you want lowercase letters in your password?")
 }
 
+function buildUserArray() {
+  while (!numericPrompt && !specialPrompt && !uppercasePrompt && !lowercasePrompt) {
+    alert("Please select at least one option.");
+    optionPrompts();
+  };
+  if (numericPrompt){
+    resultArray = resultArray.concat(numericArray);
+  };
+  if (specialPrompt){
+    resultArray = resultArray.concat(specialArray);
+  };
+  if (uppercasePrompt){
+    resultArray = resultArray.concat(uppercaseArray);
+  };
+  if (lowercasePrompt){
+    resultArray = resultArray.concat(lowercaseArray);
+  };
+}
 
   if (numeric + special + uppercase + lowercase === 0) {
   alert("Select at least one option.");
