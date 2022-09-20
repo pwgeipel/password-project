@@ -64,12 +64,14 @@ function buildUserArray() {
   };
   console.log(resultArray)
 
+  // builds new password array in userArray
   for (var i = 0; i < passwordLength; i++) {
     userArray.push(resultArray[Math.floor(Math.random() * resultArray.length)]);
   }
+  // joins userArray to single string
   userArray = userArray.join("");
 }
-
+// runs generatePassword() and assigns 'password' as a returnd userArray
 function writePassword() {
   var password = generatePassword();
   console.log("password: " + password);
